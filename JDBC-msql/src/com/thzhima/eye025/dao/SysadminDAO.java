@@ -48,7 +48,7 @@ public class SysadminDAO {
 //				 map.put("super_admin", superAdmin);
 			 }
 			 
-		}catch(SQLException e){
+		}catch(SQLException  e){
 			e.printStackTrace();
 		}finally {
 			if(null!=rst) {rst.close();}
