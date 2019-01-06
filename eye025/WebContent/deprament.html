@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style >
+		h1{
+			text-align: center;
+		}
+	
+	</style>
+</head>
+<body style=" width: 100%">
+	<h1>科室介绍</h1>
+<form>
+	<table border="0">
+		<tr >
+			<td>科室名称</td>
+			<td><input type="text" name="text"></td>
+			
+			<td ><button type="button" onclick="location='abstractList'">科室列表</button></td>
+		</tr>
+		<tr >
+			<td >科室照片</td>
+			<td><input type="file" name="piam"></td>
+		</tr>
+		<tr >
+			<td>科室介绍</td>
+			<td><textarea rows="5" cols="100" name="content"></textarea></td>
+		</tr>
+		
+		<tr>
+				<td>表布状态</td>
+				<td><input type="checkbox" name="publishStatus" ></td>
+			</tr>
+		<tr>
+				<td><input type="reset" value="清空"></td>
+				<td><input type="submit" value="发布"></td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>
