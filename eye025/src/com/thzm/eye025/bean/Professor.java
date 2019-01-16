@@ -5,7 +5,7 @@ public class Professor {
 	private String Name;
 	private String content;
 	private String photo;
-	private int id;
+	private int depid;
 	public String getName() {
 		return Name;
 	}
@@ -24,27 +24,28 @@ public class Professor {
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
-	public int getId() {
-		return id;
+	public int getDepid() {
+		return depid;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setDepid(int depid) {
+		this.depid = depid;
 	}
 	public Professor() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Professor(String name, String content, String photo, int id) {
+	public Professor(String name, String content, String photo, int depid) {
 		super();
 		Name = name;
 		this.content = content;
 		this.photo = photo;
-		this.id = id;
+		this.depid = depid;
 	}
 	@Override
 	public String toString() {
-		return "Professor [Name=" + Name + ", content=" + content + ", photo=" + photo + ", id=" + id + "]";
+		return "Professor [Name=" + Name + ", content=" + content + ", photo=" + photo + ", depid=" + depid + "]";
 	}
+
 	
 	
 	

@@ -1,11 +1,16 @@
 package com.thzm.eye025.service;
 
 
+
+import java.sql.Date;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
 import com.thzm.eye025.bean.Abstract;
 import com.thzm.eye025.dao.AbstractDAO;
+import com.thzm.eye025.dao.JdbcTemplate;
+import com.thzm.eye025.dao.ResultSetExtractor;
 
 public class AbstaractService {
 	public static boolean publish(String content,boolean publishStatus,String...pictures) {
@@ -68,11 +73,32 @@ public class AbstaractService {
 		return AbstractDAO.update(sql, id);
 }
 	
-	
-	
-	
-	public static void main(String[] args) {
-		boolean ok=publish("简介4 。。。。。。", false, "p1.gif");
-		System.out.println(ok);
-	}
+	public static Abstract getAbstract() throws SQLException {
+		String sql = "select * from abstract where publish_status=1";
+		ResultSetExtractor<Abstract> ext = new ResultSetExtractor<Abstract>() {
+			
+			@Override
+			public Abstract extract(ResultSet rst) throws SQLException {
+				if(rst.next()) {
+					int id = rst.getInt("id");
+					String picture1 = rst.getString("picture1");
+					String picture2 = rst.getString("picture2");
+					String picture3 = rst.getString("picture3");
+					String content = rst.getString("content");
+					Date publishDate = rst.getDate("publish_data");
+					boolean publishStatus = rst.getBoolean("publish_status");
+					
+					return new Abstract(id, picture1, picture2, picture3, publishStatus, publishDate, content);
+					
+				}
+				return null;
+			}
+		};
+		
+		return JdbcTemplate.select(sql, ext);
 }
+	
+	}
+	
+	
+	

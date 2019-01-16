@@ -84,6 +84,8 @@ public class PublishAbsServlet extends HttpServlet {
 							System.out.println(name);
 							
 							item.write(new File(picDir+"/", name)); // 存文件。
+							
+							
 							if("picture1".equals(getFieldName)) {
 								p1 = "/pictures/"+name;
 							}

@@ -21,7 +21,7 @@ import com.thzm.eye025.bean.Sysadmin;
 import com.thzm.eye025.service.UserService;
 
 
-@WebFilter("/*")
+//@WebFilter("/*")
 public class AccessFilter implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
@@ -43,7 +43,7 @@ public class AccessFilter implements Filter {
 		if(o!=null) {//已登陆
 			chain.doFilter(request, response); // 放行
 		}else {//没登录
-			if(-1 != path.indexOf("index.jsp") || -1!=(path.indexOf("login"))) {
+			if(-1 != path.indexOf("index.jsp") || -1!=(path.indexOf("login"))|| -1!=(path.indexOf("showAbstract"))) {
 				chain.doFilter(request, response); // 放行
 		}else {
 			Cookie[] cks = req.getCookies();

@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8" session="true"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>EyE眼科</title>
-</head>
+
 
 	<style>
 		html,body{
@@ -31,7 +31,7 @@
 			background:#ef2929ff;
 		}
 		td{
-			width:30%;
+			width:300px;
 			height: 3em;
 		}
 		input{
@@ -50,6 +50,7 @@
 			border-radius: 5px;
 		}
 	</style>
+
 	<script >
 		function login(f){
 			
@@ -74,16 +75,16 @@
 				passwordMsg.innerText='密码格式不正确';
 			}
 			
-			return login;
+			return ok;
 		}
 	</script>
-
+	</head>
 <body>
 	
 
 	<div class="panel">
 		<h1>EyE眼科后台管理系统</h1>
-		<form action="./login" method="post" onsubmit="return login(this)">
+		<form action="./login" method="post" onsubmit="return login(this);">
 		<table>
 			<tr>
 				<td>登录名</td>
@@ -97,20 +98,15 @@
 				<td id="passwordMsg"></td>
 			</tr>
 			<tr>
-				<td colspan="3">
-<%
-		String msg=(String)request.getAttribute("msg");
-		if(msg!=null){
-			out.println(msg);
-		}
-%>			
-				
+				<td colspan="3">十天免登录<input type="checkbox" name="autologin"/></td>
+				<td>
+				${msg}			
 				<input type="submit" value="登录" class="btn"></td>
 				
 			</tr>
 		</table>
 		</form>
 	</div>
-	
+	访问人数： <%=application.getAttribute("count") %>
 </body>
 </html>

@@ -78,7 +78,7 @@
 					<ul>
 						<li><a href="abstrace.jsp" target="content">医院简介</a></li>
 						<li><a href="deprament.jsp" target="content">科室介绍</a></li>
-						<li><a href="professor.html" target="content">专家介绍</a></li>
+						<li><a href="professor.jsp" target="content">专家介绍</a></li>
 						<li><a href="subscribe.html" target="content" >预约管理</a></li>
 						<li><a href="sysadmin.html" target="content">管理员管理</a></li>
 <%
